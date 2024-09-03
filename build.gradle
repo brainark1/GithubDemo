@@ -1,0 +1,79 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceSets {
+	main {
+	  java {
+		srcDirs = ['src']
+	  }
+	}
+	test {
+	  java {
+	     srcDirs = ['test']
+	  }
+	 }
+}
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+  implementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+  testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+task lab1Jar(type: Jar) {
+   dependsOn build
+   from(sourceSets.main.output) {
+     includes.addAll("common/**")
+     includes.addAll("lab1/**")
+   }
+   
+   archiveBaseName = "Lab1Autograder"
+}
+
+task lab2Jar(type: Jar) {
+   dependsOn build
+   from(sourceSets.main.output) {
+     includes.addAll("common/**")
+     includes.addAll("lab2/**")
+   }
+   
+   archiveBaseName = "Lab2Autograder"
+}
+
+task lab3Jar(type: Jar) {
+   dependsOn build
+   from(sourceSets.main.output) {
+     includes.addAll("common/**")
+     includes.addAll("lab3/**")
+   }
+   
+   archiveBaseName = "Lab3Autograder"
+}
+
+task lab4Jar(type: Jar) {
+   dependsOn build
+   from(sourceSets.main.output) {
+     includes.addAll("common/**")
+     includes.addAll("lab4/**")
+   }
+   
+   archiveBaseName = "Lab4Autograder"
+}
+
+task lab5Jar(type: Jar) {
+   dependsOn build
+   from(sourceSets.main.output) {
+     includes.addAll("common/**")
+     includes.addAll("lab5/**")
+   }
+   
+   archiveBaseName = "Lab5Autograder"
+}
